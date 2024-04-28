@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Easy</title>
+    <link rel="icon" href="gfg_favicon.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link id="theme" rel="stylesheet" href="style.css">
+</head>
+
+<body> <!-- must add light class-->
+    <header>
+        <div class="logo">
+            <img src="Diprati's_photo_logo.png" alt="Logo">
+            <h3 href="#">GFG Hacks</h3>
+            <i class='bx bxs-sun' id="mode"></i>
+        </div>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="my-nav">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#solution">Solution</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="gap gap-1" id="home"></div>
+
+    <section class="sec-1 home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Diprati Das</h1>
+            <br>
+            <p>GeeksforGeeks offers a "Daily Coding Problem" challenge aimed at improving coding skills. Participants
+                receive a new coding problem daily via email, covering diverse topics like algorithms and data
+                structures.<br>
+                This challenge enhances problem-solving abilities and coding proficiency, fostering
+                community interaction through forums and solution sharing. It's ideal for developers and students
+                seeking consistent coding practice and skill development. Each problem comes with constraints and sample
+                inputs, encouraging participants to solve using their preferred programming language. Joining this
+                challenge helps in mastering programming concepts and preparing for coding interviews.</p>
+            <p>Link for <a href="https://www.geeksforgeeks.org/problem-of-the-day" target="_blank"> <span>Geeks for Geeks</span></a></p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/profile.php?id=100034527431504&mibextid=ZbWKwL"><i
+                        class='bx bxl-facebook' undefined></i></a>
+                <a href="https://www.instagram.com/ek_villain_3114?igsh=MXZhejZhMHNienJvaA=="><i
+                        class='bx bxl-instagram' undefined></i></a>
+                <a href="https://x.com/lover_boy_0311?t=-UUA8u7YGUrdys_t28Gdug&s=09"><i class='bx bxl-twitter'
+                        undefined></i></a>
+                <a href="https://in.linkedin.com/in/diprati-das-a3a35a285"><i class='bx bxl-linkedin' undefined></i></a>
+            </div>
+            <!-- <a href="Diprati_Cv.pdf" Download class="btn">Download CV</a> -->
+        </div>
+
+        <div class="home-image">
+            <img src="gfg-logo.png" alt="GeeksforGeeks Logo">
+        </div>
+    </section>
+
+    <div class="gap gap-2" id="about"></div>
+
+    <section class="about">
+        <div class="about-image">
+            <img src="developer-image.png" alt="Developer Image">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Website</span></h2>
+            <p>The website I envision is a platform dedicated to providing solutions for GeeksforGeeks daily coding
+                problems in C++, Java, JavaScript, and Python. Learners can access this platform to quickly find
+                solutions to the daily coding challenges they encounter on GeeksforGeeks.</p>
+            <p>Key features and benefits of the website include:</p>
+            <ul class="features">
+                <li>
+                    <span> Solutions:</span> Learners will receive solutions to daily GeeksforGeeks problems within one
+                    hour of
+                    publication, ensuring prompt assistance and continuous learning.
+                </li>
+                <li>
+                    <span>Language Variety:</span> Solutions will be available in multiple programming languages (C++,
+                    Java, JavaScript,
+                    Python), catering to learners with different language preferences.
+                </li>
+                <li>
+                    <span>Comprehensive Explanations:</span> Each solution will come with detailed explanations and code
+                    walkthroughs,
+                    helping learners understand concepts and improve their coding skills.
+                </li>
+                <li>
+                    <span>Search Functionality:</span> Users can easily search for specific problems or topics,
+                    accessing a rich
+                    repository of solved problems.
+                </li>
+                <li>
+                    <span>Community Engagement:</span> The platform encourages community interaction, allowing users to
+                    discuss
+                    solutions, ask questions, and share insights.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="gap gap-3" id="solution"></div>
+
+
+    <section class="solution">
+        <h2 class="heading">Your<span> Solutions </span></h2>
+
+        <div class="solution-container">
+
+            <div class="day day-1">
+                <a href="./day-solutions/day-1.html">
+
+                    <div class="date">
+                        <p><span>Date:</span> 28/04/2024</p>
+                    </div>
+                    <div class="problem-name">
+                        <p>Delete Middle of Linked List</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="gap gap-6" id="contact"></div>
+
+    <section class="contact">
+        <h2 class="heading">Contact <span>Us!</span></h2>
+
+        <form action="https://formspree.io/f/xpzvoljz" method="POST">
+            <div class="input-box">
+                <input name="full-name" type="text" placeholder="Full name">
+                <input name="email-id" type="email" placeholder="Email Address">
+            </div>
+            <div class="input-box">
+                <input name="mobile-number" type="number" placeholder="Mobile Number">
+                <input name="email-subject" type="text" placeholder="Email Subject">
+            </div>
+            <textarea name="email-message" id="" cols="20" rows="10" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>© 2024 @ developer0311 | All Rights Reserved</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+
+
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- typed js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- bootstrap cdn -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script> -->
+
+    <!-- Custom js -->
+    <script src="script.js"></script>
+</body>
+
+</html>
