@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Caladea&family=IBM+Plex+Serif&family=Roboto+Slab:wght@300&family=Sacramento&family=Young+Serif&display=swap');
 
 :root {
-    --bodyBgColor: rgb(1 35 36);
-    --bodyBgColor2: rgb(1 41 38);
-    --headerColor: rgb(2 26 1);
-    --anchorColor: beige;
-    --anchorColorHover: rgb(11, 248, 228);
-    --textColor: #fff;
-    --imageShadow: rgb(0 255 212);
-    --imageShadowHover: rgba(0, 255, 213, 0.767);
-    --day: rgb(0, 24, 10);
+    --bodyBgColor: rgb(196 253 255);
+    --bodyBgColor2: rgb(163 217 253);
+    --headerColor: rgb(178 255 234);
+    --anchorColor: rgb(0, 9, 33);
+    --anchorColorHover: rgb(68 74 255);
+    --textColor: rgb(40, 150, 255);
+    --imageShadow: rgb(0 138 255);
+    --imageShadowHover: rgb(72, 96, 255);
+    --day: rgb(239 221 255);
     --classSpan: rgb(255 159 159);
     --objectSpan: rgb(187 175 255);
 }
@@ -135,7 +135,7 @@ section .theme #mode {
 .solution-container .answer button{
     background-color: transparent;
     cursor: pointer;
-    color: rgb(206, 204, 204);
+    color: rgb(3, 81, 172);
     font-size: 15px;
     margin-left: 85%;
 }
