@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove every kth node</title>
+    <link rel="icon" href="gfg_favicon.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link id="theme" rel="stylesheet" href="style-day.css">
+</head>
+
+<body>
+    <section>
+        <div class="theme">
+            <i class='bx bxs-sun' id="mode"></i>
+        </div>
+        
+        <div class="problem-name">
+            <h1>Remove every kth node</h1>
+        </div>
+        <div class="solution-container">
+
+            <div class="answer solution-c">
+                <h3>C++</h3>
+                <pre>
+                    <code id="code-c"> 
+                    </code>
+                </pre>
+                <button class="copy-btn copy-btn-c" data-clipboard-target="#code-c" onclick="fadeCopyButtons()"><i
+                        class='bx bx-copy-alt'></i> Copy code</button>
+            </div>
+
+            <div class="answer solution-java">
+                <h3>JAVA</h3>
+                <pre>
+                    <code id="code-java">
+                        
+                </code>
+                </pre>
+                <button class="copy-btn copy-btn-java" data-clipboard-target="#code-java"><i class='bx bx-copy-alt'></i> Copy
+                    code</button>
+            </div>
+
+            <div class="answer solution-py">
+                <h3>Python</h3>
+                <pre>
+                <code id="code-python">
+                    
+                    </code>
+                </pre>
+                <button class="copy-btn copy-btn-python" data-clipboard-target="#code-python"><i class='bx bx-copy-alt'></i> Copy
+                    code</button>
+            </div>
+
+            <div class="answer solution-node">
+                <h3>JavaScript</h3>
+                <pre>
+                    <code id="code-js">
+                    
+                    </code>
+                </pre>
+                <button class="copy-btn copy-btn-js" data-clipboard-target="#code-javascript"><i class='bx bx-copy-alt'></i> Copy
+                    code</button>
+            </div>
+        </div>
+        <br>
+        <br>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>© <span id="year"></span> @ developer0311 | All Rights Reserved</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="../index.html#solution"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+    <script>
+
+        const codeAnswerC = `
+        <span class="classSpan">class Solution</span> {
+            public:
+            <span class="objectSpan">Node * deleteK(Node *head,int K)</span>{
+               if(head==NULL) // check if the list is empty
+                return NULL;
+                               
+               Node *temp = head; // create a temporary node to traverse the list
+               Node *back; // create a pointer to keep track of the previous node
+               int kount = 1; // initialize a counter for counting nodes
+                               
+               if(K==1) // if the given value of K is 1, it will always result in an empty list
+                return NULL;
+                               
+               while(temp!=NULL and temp->next) // traverse the list until the end or last node
+               {
+                   kount++; // increment the counter
+                   back = temp; // update the previous node
+                   temp = temp->next; // move to the next node
+                                   
+                   if(kount==K) // if the counter equals the given value of K
+                   {
+                       Node *r = temp->next; // create a pointer to the next node
+                       free(temp); // delete the current node
+                       back->next = r; // update the link between the previous and next node
+                       temp = r; // update the current node
+                       kount=1; // reset the counter
+                   }
+                   
+               }
+               return head; // return the modified list
+            }
+        };`;
+        let codeC = document.querySelector("#code-c");
+        codeC.innerHTML = codeAnswerC
+
+        const codeAnswerJava = `
+        <span class="classSpan">class Solution</span> {
+            // This method deletes every kth node in a linked list
+            <span class="objectSpan">Node delete(Node head, int k)</span> {
+                if (head == null)
+                    return null;
+                int count = 1;
+                Node temp = head;
+                Node back;
+        
+                // If k is 1, delete the entire list and return null
+                if (k == 1)
+                    return null;
+                        
+                // Traverse through the linked list
+                while (temp.next != null) {
+                    count++;
+                    back = temp;
+                    temp = temp.next;
+        
+                    // If count becomes equal to k, delete current node
+                    if (count == k) {
+                        // If current node is the last node, remove its reference from back node
+                        if (temp.next == null) {
+                            back.next = null;
+                            return head;
+                        }
+                        // Remove current node by changing the reference of back node to the next node
+                        Node r = temp.next;
+                        back.next = r;
+                        temp = r;
+                        count = 1;
+                    }
+                }
+                return head;
+            }
+        }`;
+        let codeJava = document.querySelector("#code-java");
+        codeJava.innerHTML = codeAnswerJava
+
+        const codeAnswerPython = `
+        <span class="classSpan">class Solution</span>:
+
+            <span class="objectSpan">def deleteK(self, head, k)</span>:
+                #if the head is None, return None
+                if head is None:
+                    return None
+
+                #initialize temp and back
+                temp, back = head, None
+                n = 1
+
+                #if k is 1, return None
+                if k == 1:
+                    return None
+
+                while temp != None and temp.next != None:
+                    #increment n and update back
+                    n += 1
+                    back = temp
+                    temp = temp.next
+
+                    #if n is equal to k
+                    if n == k:
+                        #delete the current node and update back and temp
+                        r = temp.next
+                        del temp
+                        back.next = r
+                        temp = r
+                        n = 1
+                #return the head
+                return head`;
+        let codePython = document.querySelector("#code-python");
+        codePython.innerHTML = codeAnswerPython
+
+        const codeAnswerJs = `
+        <span class="classSpan">class Solution</span> {
+            <span class="objectSpan">deleteK(head,k)</span>{
+              //code here
+              if(head==null)
+                  return null;
+              let temp = head;
+              let back;
+              let kount = 1;
+              if(k==1)
+                  return null;
+              while(temp!=null && temp.next){
+                  kount++;
+                  back = temp;
+                  temp = temp.next;
+                  if(kount==k){
+                      let r = temp.next;
+                      temp = null;
+                      back.next = r;
+                      temp = r;
+                      kount = 1;
+                  }
+              }
+              return head;
+            }
+        }`;
+        let codeJs = document.querySelector("#code-js");
+        codeJs.innerHTML = codeAnswerJs
+
+
+    </script>
+
+    <script src="./script-day.js"></script>
+</body>
+
+</html>
