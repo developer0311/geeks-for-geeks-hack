@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrange Consonants and Vowels</title>
+    <link rel="icon" href="gfg_favicon.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link id="theme" rel="stylesheet" href="style-day.css">
+</head>
+
+<body>
+    <section>
+        <div class="theme">
+            <i class='bx bxs-sun' id="mode"></i>
+        </div>
+
+        <div class="problem-name">
+            <h1>Arrange Consonants and Vowels</h1>
+        </div>
+        <div class="solution-container">
+
+            <div class="answer solution-c">
+                <h3>C++</h3>
+                <pre>
+                    <code id="code-c"> 
+                    </code>
+                </pre>
+                <button class="copy-btn copy-btn-c" data-clipboard-target="#code-c" onclick="fadeCopyButtons()"><i
+                        class='bx bx-copy-alt'></i> Copy code</button>
+            </div>
+
+            <div class="answer solution-java">
+                <h3>JAVA</h3>
+                <pre>
+                    <code id="code-java">
+                        
+                </code>
+                </pre>
+                <button class="copy-btn copy-btn-java" data-clipboard-target="#code-java"><i class='bx bx-copy-alt'></i>
+                    Copy
+                    code</button>
+            </div>
+
+            <div class="answer solution-py">
+                <h3>Python</h3>
+                <pre>
+                <code id="code-python">
+                    
+                    </code>
+                </pre>
+                <button class="copy-btn copy-btn-python" data-clipboard-target="#code-python"><i
+                        class='bx bx-copy-alt'></i> Copy
+                    code</button>
+            </div>
+
+            <div class="answer solution-node">
+                <h3>JavaScript</h3>
+                <pre>
+                    <code id="code-js">
+                    
+                    </code>
+                </pre>
+                <button class="copy-btn copy-btn-js" data-clipboard-target="#code-javascript"><i
+                        class='bx bx-copy-alt'></i> Copy
+                    code</button>
+            </div>
+        </div>
+        <br>
+        <br>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p>© <span id="year"></span> @ developer0311 | All Rights Reserved</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="../index.html#solution"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+
+
+    <!-- Scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+    <script>
+
+        const codeAnswerC = `
+        <span class="classSpan">class Solution</span> {
+        public:
+            // Function to check if a character is a vowel
+            <span class="objectSpan">bool isVowel(char x) </span>{
+                return (x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u');
+            }
+
+            // Function to rearrange the linked list based on vowels
+            struct Node *arrangeCV(Node *head) {
+                Node *newHead = head;
+                Node *latestVowel;
+                Node *curr = head;
+
+                // Return NULL if the linked list is empty
+                if (head == NULL)
+                    return NULL;
+
+                // If the first node is a vowel, set it as the latest vowel
+                if (isVowel(head->data))
+                    latestVowel = head;
+                else {
+                    // Find the next vowel node or reach the end of the linked list
+                    while (curr->next != NULL && !isVowel(curr->next->data))
+                        curr = curr->next;
+
+                    // Return the head if no vowel node is found
+                    if (curr->next == NULL)
+                        return head;
+
+                    // Set the next vowel node as the latest vowel
+                    latestVowel = newHead = curr->next;
+                    curr->next = curr->next->next;
+                    latestVowel->next = head;
+                }
+
+                // Iterate through the linked list to rearrange nodes
+                while (curr != NULL && curr->next != NULL) {
+                    // If the next node is a vowel
+                    if (isVowel(curr->next->data)) {
+                        // If curr is the latest vowel, move the latestVowel pointer
+                        if (curr == latestVowel)
+                            latestVowel = curr = curr->next;
+                        else {
+                            // Rearrange the nodes
+                            Node *temp = latestVowel->next;
+                            latestVowel->next = curr->next;
+                            latestVowel = latestVowel->next;
+                            curr->next = curr->next->next;
+                            latestVowel->next = temp;
+                        }
+                    }
+                    // Move to the next node
+                    else
+                        curr = curr->next;
+                }
+                return newHead;
+            }
+        };`;
+        let codeC = document.querySelector("#code-c");
+        codeC.innerHTML = codeAnswerC
+
+        const codeAnswerJava = `
+        <span class="classSpan">class Solution </span>{
+    
+            <span class="objectSpan">public Node arrangeCV(Node head)</span>{
+                Set<Character> s = new HashSet<>();
+                s.add('a');
+                s.add('e');
+                s.add('i');
+                s.add('o');
+                s.add('u');
+                
+                Node fakehead = new Node('.');
+                fakehead.next = head;
+                
+                Node temp = fakehead, head_v = null, tail_v = null;
+                while(temp != null && temp.next != null){
+                    //System.out.println("At "+temp.data+", Checking "+temp.next.data);
+                    if(s.contains(temp.next.data)){
+                        if(temp.next == head){
+                            head = head.next;
+                        }
+                        if(head_v == null){
+                            head_v = temp.next;
+                            tail_v = head_v;
+                        } else {
+                            tail_v.next = temp.next;
+                            tail_v = tail_v.next;
+                        }
+                        temp.next = temp.next.next;                
+                    } else {
+                        temp = temp.next;  
+                    }
+                }
+                //show(head);
+                
+                if(tail_v != null){
+                    tail_v.next = head;
+                    head = head_v;
+                }
+                //System.out.println("Asfasf");
+                return head;
+            }
+            
+            public void show(Node head){
+                //System.out.println("in show");
+                Node temp = head;
+                while(temp != null){
+                    System.out.print(temp.data+" ");
+                    temp = temp.next;
+                }
+                //System.out.println("exiting");
+                System.out.println();
+            }
+            
+        }`;
+        let codeJava = document.querySelector("#code-java");
+        codeJava.innerHTML = codeAnswerJava
+
+        const codeAnswerPython = `
+        <span class="classSpan">class Solution</span>:
+            # Function to check if a character is a vowel
+            <span class=objectSpan>def isVowel(self, x)</span>:
+                return x in ['a', 'e', 'i', 'o', 'u']
+
+            # Function to rearrange the linked list based on vowels
+            def arrangeCV(self, head):
+                new_head = head
+                latest_vowel = None
+                curr = head
+
+                # Return None if the linked list is empty
+                if head is None:
+                    return None
+
+                # If the first node is a vowel, set it as the latest vowel
+                if self.isVowel(head.data):
+                    latest_vowel = head
+                else:
+                    # Find the next vowel node or reach the end of the linked list
+                    while curr.next is not None and not self.isVowel(curr.next.data):
+                        curr = curr.next
+
+                    # Return the head if no vowel node is found
+                    if curr.next is None:
+                        return head
+
+                    # Set the next vowel node as the latest vowel
+                    latest_vowel = new_head = curr.next
+                    curr.next = curr.next.next
+                    latest_vowel.next = head
+
+                # Iterate through the linked list to rearrange nodes
+                while curr is not None and curr.next is not None:
+                    # If the next node is a vowel
+                    if self.isVowel(curr.next.data):
+                        # If curr is the latest vowel, move the latest_vowel pointer
+                        if curr == latest_vowel:
+                            latest_vowel = curr = curr.next
+                        else:
+                            # Rearrange the nodes
+                            temp = latest_vowel.next
+                            latest_vowel.next = curr.next
+                            latest_vowel = latest_vowel.next
+                            curr.next = curr.next.next
+                            latest_vowel.next = temp
+                    # Move to the next node
+                    else:
+                        curr = curr.next
+                return new_head`;
+        let codePython = document.querySelector("#code-python");
+        codePython.innerHTML = codeAnswerPython
+
+        const codeAnswerJs = `
+        <span class="classSpan">class Solution </span>{
+            <span class="objectSpan">arrangeCV(head)</span>{
+                if (!head || !head.next) {
+                    return head;
+                }
+                
+                let vowelList = null;
+                let vowelTail = null;
+                let consonantList = null;
+                let consonantTail = null;
+                
+                while (head) {
+                    if (isVowel(head.data)) {
+                        if (vowelList === null) {
+                            vowelList = head;
+                            vowelTail = head;
+                        } else {
+                            vowelTail.next = head;
+                            vowelTail = vowelTail.next;
+                        }
+                    } else {
+                        if (consonantList === null) {
+                            consonantList = head;
+                            consonantTail = head;
+                        } else {
+                            consonantTail.next = head;
+                            consonantTail = consonantTail.next;
+                        }
+                    }
+                    head = head.next;
+                }
+                
+                if (vowelTail) {
+                    vowelTail.next = consonantList;
+                }
+                
+                if (consonantTail) {
+                    consonantTail.next = null;
+                }
+                
+                if (vowelList) {
+                    return vowelList;
+                }
+                return consonantList;
+            }
+            }
+
+            function isVowel(x) {
+                return ['a', 'e', 'i', 'o', 'u'].includes(x.toLowerCase());
+            }`;
+        let codeJs = document.querySelector("#code-js");
+        codeJs.innerHTML = codeAnswerJs
+
+
+    </script>
+
+    <script src="./script-day.js"></script>
+</body>
+
+</html>
